@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "261230543623",
+    "firebase_url": "https://rn-chat-dhj.firebaseio.com",
+    "project_id": "rn-chat-dhj",
+    "storage_bucket": "rn-chat-dhj.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261230543623:android:503b5b3a92eab9a4d47ba2",
+        "android_client_info": {
+          "package_name": "com.firebasechatpoc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "261230543623-tv3pa9qlc30jnqej46rregeku4hhvv1l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHDHNe7q2oRwR8aYHF_xbtCwnzjwNcTBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "261230543623-tv3pa9qlc30jnqej46rregeku4hhvv1l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
