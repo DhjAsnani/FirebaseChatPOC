@@ -1,54 +1,34 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import 'react-native-gesture-handler';
+import { NavigationContainer, StackActions, NavigationActions } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
-// import firestore from '@react-native-firebase/firestore';
+import { StyleSheet, View, Text, StatusBar, Button } from 'react-native';
 
-// const usersCollection = firestore().collection('Users');
+import { Colors, } from 'react-native/Libraries/NewAppScreen';
 
-class App extends React.Component{
-  constructor(props)
-  {
-    super(props);
-  }
+import ChatScreen from './app/component/chatScreen.js'
 
-  doSomeAction()
-  {
-    // console.log(usersCollection);
-    return <Text>Hiii</Text>
-  }
+const Stack = createStackNavigator();
 
-  render()
-  {
-    return(
-      <View>
-        <Text>We are almost fucked up!!</Text>
-        {this.doSomeAction()}
-      </View>
-    )
-  }
-}
+const App = () => {
+  return (
+    <NavigationContainer>
+      <StatusBar backgroundColor="white" barStyle={'dark-content'} />
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+          title: false
+        }}
+      >
+        <Stack.Screen name="ChatScreen" component={ChatScreen} options={{headerTitle: 'Chat', headerShown: false}} />
+
+        
+
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default App;
