@@ -4,7 +4,7 @@ import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { GiftedChat, Bubble } from 'react-native-gifted-chat';
 import firestore from '@react-native-firebase/firestore';
 
-const ref = firestore().collection('giftchattest1');
+const ref = firestore().collection('giftchattest2');
 
 export default class ChatScreen extends React.Component {
     constructor(props) {
@@ -16,6 +16,7 @@ export default class ChatScreen extends React.Component {
             ]
             
         };
+        this.loadData()
         this.onSend = this.onSend.bind(this);
     }
 
@@ -25,7 +26,7 @@ export default class ChatScreen extends React.Component {
       ref.add(
         {
           'text':msg_text,
-          'createdAt': new Date(),
+          'createdAt': new Date( Date.now() ).getTime(),
           'user':{
               '_id':sender_id,
               'name':sender_name
@@ -36,6 +37,37 @@ export default class ChatScreen extends React.Component {
           console.log(text, 'added')
         }
       )
+    }
+
+    loadData()
+    {
+        var msg_object = []
+        
+        ref.onSnapshot(querySnapshot => {
+      
+            querySnapshot.forEach(doc=>{
+            //   console.log(doc.data())
+              var objj = {
+                  'text':doc.data().text,
+                  'createdAt':doc.data().createdAt,
+                  'user':{
+                      '_id':doc.data().user._id,
+                      'name':doc.data().user.name
+                  }
+
+              }
+
+              msg_object.push(objj)
+              console.log(msg_object)
+              this.setState({messages:msg_object})
+            }
+              )
+          })
+
+          console.log(msg_object)
+        
+          
+          
     }
     // UNSAFE_componentWillMount() {
         
@@ -87,7 +119,8 @@ export default class ChatScreen extends React.Component {
     }
 
     onSend(messages = []) {
-        console.log(messages[0].user._id)
+        // console.log(messages[0].user._id)
+        
         this.addData(messages[0].user._id,messages[0].user.name,messages[0].text)
         this.setState((previousState) => {
             return {
