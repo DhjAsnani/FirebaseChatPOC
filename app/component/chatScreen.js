@@ -42,12 +42,16 @@ export default class ChatScreen extends React.Component {
     loadData()
     {
         var msg_object = []
-        
-        ref.onSnapshot(querySnapshot => {
-      
+        console.log("--------------0---------------");
+        ref.orderBy('createdAt', 'desc').onSnapshot(querySnapshot => {
+            msg_object = []
+            this.setState({messages:msg_object})
+            console.log("---------------------1------------------");
+            console.log(msg_object)
             querySnapshot.forEach(doc=>{
             //   console.log(doc.data())
               var objj = {
+                  '_id':doc.id,
                   'text':doc.data().text,
                   'createdAt':doc.data().createdAt,
                   'user':{
@@ -58,6 +62,7 @@ export default class ChatScreen extends React.Component {
               }
 
               msg_object.push(objj)
+              console.log("---------------------2------------------");
               console.log(msg_object)
               this.setState({messages:msg_object})
             }
@@ -144,8 +149,8 @@ export default class ChatScreen extends React.Component {
                     onSend={this.onSend}
                     renderBubble={this.renderBubble}
                     user={{
-                        _id: 9,
-                        name:"Dheeraj"
+                        _id: 8,
+                        name:"Chetan"
                     }}
                 />
 
