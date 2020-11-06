@@ -35,8 +35,8 @@ const App = () => {
 
     localNotificationService.showNotification(
       0,
-      notify.data.name,
-      notify.data.name,
+      notify.notification.title,
+      notify.notification.body,
       notify,
       options,
     )
