@@ -129,11 +129,18 @@ export default class ChatScreen extends React.Component {
         //     })
         // });
 
+        // var dataa = {
+        //     topic: 'topic1',
+        //     notification: {
+        //         body:text_msg,
+        //         title:'New Chat Message'
+        //     }
+        // }
+
         var dataa = {
             topic: 'topic1',
-            notification: {
-                body:text_msg,
-                title:'New Chat Message'
+            data: {
+                name: 'dheeraj'
             }
         }
 
@@ -147,7 +154,7 @@ export default class ChatScreen extends React.Component {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ya29.c.Kp0B4gcTOTPY5TtCjvbJsHigHWcA2fOmqmrZziMpnLhQLmeLB2GcYi9JanTz_wrL1e27vz2wJ_xso6DSWr09Ylb69kvfhPcTwTxJ9At6mMLXqqcZzc7dQ1lZ3vvKAPDJasWUtO_S8TvSLKBXDH2Wbw043edRpCbqpSSlaXzSqm_NHR1tKTV2WlMwtFLNuYMctUSbMJBuU1o4TxFAPpYkQA'
+                'Authorization': 'Bearer ya29.c.Kp0B5AfuKaeNovbvm8Yh6kDcuOCEKm_Qpb6A-Jj2vDADedoS7vV_P6EpQE4GJzsEhfaLZf1ZtfJdi6u97RFh--3ANquwXZYcg1egrvlpjdOlU9iLtGQAHRFgeOaVAmb3lQDzNctj55CxUoxg7xP2dBM28-bEY_wixxK6Be0aHg71de9QVbX1PAZCqadwY_hD70F2nH9qxv7aXT3LxyZHUA'
             },
             body: JSON.stringify(message)
         })

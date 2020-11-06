@@ -16,11 +16,11 @@ const Stack = createStackNavigator();
 
 const App = () => {
 
-  useEffect(()=>{
+  useEffect(() => {
     fcmService.registerAppWithFCM();
     fcmService.register(onRegister, onNotification, onOpenNotification);
     localNotificationService.configure(onOpenNotification)
-  },[])
+  }, [])
 
   const onRegister = (token) => {
     console.log("[App] Token", token);
@@ -35,15 +35,15 @@ const App = () => {
 
     localNotificationService.showNotification(
       0,
-      notify.notification.title,
-      notify.notification.body,
+      notify.data.name,
+      notify.data.name,
       notify,
       options,
     )
   }
 
   const onOpenNotification = async (notify) => {
-  
+
     console.log('notify', notify);
   }
 
@@ -56,10 +56,7 @@ const App = () => {
           title: false
         }}
       >
-        <Stack.Screen name="ChatScreen" component={ChatScreen} options={{headerTitle: 'Chat', headerShown: false}} />
-
-        
-
+        <Stack.Screen name="ChatScreen" component={ChatScreen} options={{ headerTitle: 'Chat', headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
