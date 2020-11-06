@@ -141,6 +141,10 @@ export default class ChatScreen extends React.Component {
             topic: 'topic1',
             data: {
                 name: 'dheeraj'
+            },
+            notification: {
+                body: text_msg,
+                title: 'New Chat Message'
             }
         }
 
@@ -154,7 +158,7 @@ export default class ChatScreen extends React.Component {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ya29.c.Kp0B5AfuKaeNovbvm8Yh6kDcuOCEKm_Qpb6A-Jj2vDADedoS7vV_P6EpQE4GJzsEhfaLZf1ZtfJdi6u97RFh--3ANquwXZYcg1egrvlpjdOlU9iLtGQAHRFgeOaVAmb3lQDzNctj55CxUoxg7xP2dBM28-bEY_wixxK6Be0aHg71de9QVbX1PAZCqadwY_hD70F2nH9qxv7aXT3LxyZHUA'
+                'Authorization': 'Bearer ya29.c.Kp0B5AdU053zErVu5B6QLyPHU2V5c_vY_iZ8A74bz4-T8nQ14qVz3xrOHzYLDflTU1U4cnxgXORlybh0uvZUFFmAIEhsJGAS4LTgqwDJOBDJcF3lC6u0lRrBlgt_cbZ9-mv2943SzPlcSTEYkXhlezKtKx8j5eCm8kelfSD4eZRPhidJhyQeVOwFGnSxi29b_vMKsiEF9s5nEKNJZYQaIQ'
             },
             body: JSON.stringify(message)
         })
@@ -174,7 +178,7 @@ export default class ChatScreen extends React.Component {
 
     onSend(messages = []) {
 
-        var notification_text =  messages[0].user.name + " : "+messages[0].text
+        var notification_text = messages[0].user.name + " : " + messages[0].text
         this.doPOSTAction(notification_text);
         this.addData(messages[0].user._id, messages[0].user.name, messages[0].text)
         this.setState((previousState) => {
